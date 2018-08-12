@@ -8,13 +8,13 @@ const ReservationsSchema = new Schema({
         ref: 'Users',
         required: true
     },
-    "Estates": {
+    "estates": {
         type: Schema.Types.ObjectId,
         ref: 'Estates',
         required: true
     },
     "payment_status": {
-        type: boolean,
+        type: Boolean,
         required: true,
         default: false
     },
@@ -24,7 +24,7 @@ const ReservationsSchema = new Schema({
         default: 1
     },
     "reservation_status": {
-        type: boolean,
+        type: Boolean,
         required: true,
         default: false
     },

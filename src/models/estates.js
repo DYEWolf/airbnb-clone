@@ -28,7 +28,7 @@ const EstatesSchema = new Schema({
         ref: 'Users',
         required: true
     },
-    "type": {
+    "types": {
         type: Number,
         required: true
     },
@@ -41,12 +41,10 @@ const EstatesSchema = new Schema({
             "comment": String,
             "stars": Number
         }],
-        required: true
     },
     "features": [{
         type: Schema.Types.ObjectId,
         ref: 'Features',
-        required: true
     }],
     "services": [{
         type: Schema.Types.ObjectId,

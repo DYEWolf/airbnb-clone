@@ -1,4 +1,4 @@
-import mongoose, { mongo } from 'mongoose';
+import mongoose from 'mongoose'
 import bcrypt from 'bcrypt';
 
 const Schema = mongoose.Schema;
@@ -51,12 +51,11 @@ const UserSchema = new Schema({
     },
     "user_pay": {
         type: String,
-        required: true
     }
 }, {collection: "Users", timestamps: true});
 
 
-UserSchema.pre('save', (next) => {
+UserSchema.pre('save', function(next)  {
     let user = this;
     if(!user.isModified('password')) {return next();}
     bcrypt.genSalt(SALT, (err, salt) => {
