@@ -40,7 +40,7 @@ const EstatesSchema = new Schema({
         type: [{
             "comment": String,
             "stars": Number
-        }],
+        }]
     },
     "features": [{
         type: Schema.Types.ObjectId,

@@ -1,4 +1,4 @@
-import {GraphQLObjectType, GraphQLString, GraphQLNonNull, GraphQLID} from 'graphql';
+import {GraphQLObjectType, GraphQLString, GraphQLNonNull, GraphQLID, GraphQLInputObjectType} from 'graphql';
 
 export const ServicesType = new GraphQLObjectType({
     name: 'Services',
@@ -7,6 +7,19 @@ export const ServicesType = new GraphQLObjectType({
         _id: {
             type: GraphQLNonNull(GraphQLID)
         },
+        name: {
+            type: GraphQLString
+        },
+        description: {
+            type: GraphQLString
+        },
+    })
+});
+
+export const ServicesInputType = new GraphQLInputObjectType({
+    name: 'addServices',
+    description: 'add services',
+    fields: () => ({
         name: {
             type: GraphQLString
         },

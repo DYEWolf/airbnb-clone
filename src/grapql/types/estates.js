@@ -32,7 +32,7 @@ export const RatingsType = new GraphQLObjectType({
     })
 });
 
-export const EstatesTypes = new GraphQLObjectType({
+export const EstatesType = new GraphQLObjectType({
     name: 'Estates',
     description: 'Estates from airbnb clone',
     fields: () => ({
@@ -83,6 +83,49 @@ export const EstatesTypes = new GraphQLObjectType({
                 const {services} = estate;
                 return Services.find({_id:{$in:services}}).exec();
             }
+        },
+        photos: {
+            type: GraphQLList(GraphQLString)
+        },
+        start_availability: {
+            type: GraphQLString
+        },
+        end_availability: {
+            type: GraphQLString
+        }
+    })
+});
+
+export const EstatesInputType = new GraphQLInputObjectType({
+    name: 'addEstates',
+    description: 'add estates',
+    fields: () => ({
+        name: {
+            type: GraphQLString
+        },
+        short_description: {
+            type: GraphQLString
+        },
+        long_description: {
+            type: GraphQLString
+        },
+        location: {
+            type: GraphQLString
+        },
+        country: {
+            type: GraphQLString
+        },
+        user: {
+            type: GraphQLNonNull(GraphQLID),
+        },
+        types: {
+            type: GraphQLInt
+        },
+        value: {
+            type: GraphQLInt
+        },
+        services: {
+            type: new GraphQLList(GraphQLID)
         },
         photos: {
             type: GraphQLList(GraphQLString)
